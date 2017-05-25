@@ -1,0 +1,20 @@
+defaults
+  log global
+  mode  tcp
+  option redispatch
+  contimeout 50000000
+  clitimeout 50000000
+  srvtimeout 50000000
+
+listen stats
+  bind *:9090
+  balance
+  mode http
+  stats enable
+  stats uri /haproxy?stats
+
+listen hello-world
+    bind *:80
+    mode tcp
+    balance roundrobin
+    server mybackend dcos-dad-master.marathon.l4lb.thisdcos.directory:443

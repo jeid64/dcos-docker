@@ -1,0 +1,33 @@
+bootstrap_url: http://bootstrap.marathon.l4lb.thisdcos.directory:80
+cluster_name: DCOS
+exhibitor_storage_backend: zookeeper
+exhibitor_zk_hosts: "master.mesos:2181"
+exhibitor_zk_path: "/dcos-dad"
+master_discovery: master_http_loadbalancer
+exhibitor_address: dcos-dad-masters.marathon.l4lb.thisdcos.directory
+num_masters: 1
+resolvers:
+ - 10.0.5.65
+check_time: false
+customer_key: 12345-12346-12356-12456-13456-234561
+
+#current
+bootstrap_url: http://10.0.5.65:8000
+cluster_name: DCOS
+exhibitor_storage_backend: zookeeper
+exhibitor_zk_hosts: 10.0.5.65:2181
+exhibitor_zk_path: /dcos-dad
+master_discovery: master_http_loadbalancer
+exhibitor_address: dcos-dad-master.marathon.containerip.dcos.4s94a3xtetxwedpkfoqrulwn399mud6exteg3tmj8iai73tzsruy.dcos.directory
+num_masters: 1
+resolvers:
+ - 10.0.5.65
+check_time: false
+customer_key: 12345-12346-12356-12456-13456-234561
+dcos_overlay_network:
+      vtep_subnet: 44.128.0.0/20
+      vtep_mac_oui: 70:B3:D5:00:00:00
+      overlays:
+        - name: dcos
+          subnet: 192.168.0.0/16
+          prefix: 24

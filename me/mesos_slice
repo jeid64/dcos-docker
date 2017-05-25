@@ -1,0 +1,5 @@
+SYSTEMD_SLICE=/run/systemd/system/mesos_executors.slice
+#if [ "$(MESOS_SYSTEMD_ENABLE_SUPPORT)" == "true" ]; then \
+    echo -e '[Unit]\nDescription=Mesos Executors Slice' | sudo tee -a $SYSTEMD_SLICE; \
+    sudo systemctl start mesos_executors.slice; \
+#fi
