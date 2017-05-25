@@ -1,0 +1,12 @@
+[Unit]
+After=docker.service
+
+[Service]
+EnvironmentFile=-/mnt/mesos/sandbox/dcos-dad-envfile-master
+EnvironmentFile=-/mnt/mesos/sandbox/dcos-dad-envfile-slave
+EnvironmentFile=-/mnt/mesos/sandbox/dcos-dad-envfile-slave-public
+ExecStart=
+ExecStart=/dcos-dad-download.sh
+
+[Install]
+WantedBy=default.target
