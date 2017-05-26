@@ -1,6 +1,6 @@
 {
   "id": "/dcos-dad-master",
-  "instances": 1,
+  "instances": 3,
   "container": {
     "type": "DOCKER",
     "docker": {

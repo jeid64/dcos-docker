@@ -1,0 +1,13 @@
+bootstrap_url: http://bootstrap.marathon.l4lb.thisdcos.directory:80
+cluster_name: DCOS
+exhibitor_storage_backend: zookeeper
+exhibitor_zk_hosts: "master.mesos:2181"
+exhibitor_zk_path: "/dcos-dad"
+master_discovery: master_http_loadbalancer
+exhibitor_address: dcos-dad-masters.marathon.l4lb.thisdcos.directory
+num_masters: 1
+resolvers:
+ - 10.0.5.65
+check_time: false
+customer_key: 12345-12346-12356-12456-13456-234561
+

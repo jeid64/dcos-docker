@@ -1,0 +1,8 @@
+Change config.yaml
+
+Change URI for env files in Marathon apps
+
+Change bootstrapip+port in env files (genconf/serve/dcos-dad-envfile-*)+config.yaml
+
+HAProxy config volume mount if wanted
+

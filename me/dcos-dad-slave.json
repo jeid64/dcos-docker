@@ -8,7 +8,14 @@
               "containerPath": "/sys/fs/cgroup",
               "hostPath": "/sys/fs/cgroup",
               "mode": "RW"
-          }
+          },
+         {
+        "persistent": {
+          "size": 10000
+        },
+        "mode": "RW",
+        "containerPath": "docker-storage-dir"
+      }
       ],
     "docker": {
       "image": "jeid64/dcos-dad",
