@@ -80,7 +80,7 @@
   "mem": 4096,
   "cpus": 2,
   "uris": [
-          "http://10.0.5.65:8000/dcos-dad-envfile-master"
+          "http://dcos_dad_bootstrap_ip:dcos_dad_bootstrap_port/dcos-dad-envfile-master"
   ],
   "ipAddress": {
           "networkName": "dcos"
