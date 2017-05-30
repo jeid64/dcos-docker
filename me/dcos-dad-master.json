@@ -1,6 +1,6 @@
 {
   "id": "/dcos-dad-master",
-  "instances": 3,
+  "instances": dcos_dad_num_masters,
   "container": {
     "type": "DOCKER",
     "docker": {
@@ -84,5 +84,10 @@
   ],
   "ipAddress": {
           "networkName": "dcos"
+  },
+  "labels": {
+          "DCOS_SERVICE_NAME": "dcos-dad",
+          "DCOS_SERVICE_PORT_INDEX": "1",
+          "DCOS_SERVICE_SCHEME": "https"
   }
 }

@@ -8,7 +8,7 @@ exhibitor_zk_path: /dcos-dad
 master_discovery: master_http_loadbalancer
 # get cryptokey from /navstar/lashup/key
 exhibitor_address: dcos-dad-master.marathon.containerip.dcos.dcos_dad_cryptoid.dcos.directory
-num_masters: 3
+num_masters: dcos_dad_num_masters
 # this could probably just be upstream
 resolvers:
  - dcos_dad_upstream_resolver
