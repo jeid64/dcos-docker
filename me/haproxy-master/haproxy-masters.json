@@ -10,15 +10,8 @@
   "maxLaunchDelaySeconds": 3600,
   "container": {
     "type": "DOCKER",
-            "volumes": [
-          {
-              "containerPath": "/usr/local/etc/haproxy",
-              "hostPath": "/root/haproxy",
-              "mode": "RW"
-          }
-      ],
     "docker": {
-      "image": "haproxy",
+      "image": "jeid64/dcos-dad-haproxy",
       "network": "BRIDGE",
       "portMappings": [
         {
