@@ -87,6 +87,8 @@
   },
   "labels": {
        "HAPROXY_GROUP":"external",
-       "HAPROXY_1_VHOST":"dcos_dad_vhost"
+       "HAPROXY_1_VHOST":"dcos_dad_vhost",
+       "HAPROXY_1_REDIRECT_TO_HTTPS": "true",
+       "HAPROXY_1_BACKEND_SERVER_OPTIONS": "server {serverName} {host_ipv4}:{port} {cookieOptions} check inter 5s ssl verify none \n"
   }
 }
