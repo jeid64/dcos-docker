@@ -86,8 +86,7 @@
           "networkName": "dcos"
   },
   "labels": {
-          "DCOS_SERVICE_NAME": "dcos-dad",
-          "DCOS_SERVICE_PORT_INDEX": "1",
-          "DCOS_SERVICE_SCHEME": "https"
+       "HAPROXY_GROUP":"external",
+       "HAPROXY_1_VHOST":"dcos_dad_vhost"
   }
 }
