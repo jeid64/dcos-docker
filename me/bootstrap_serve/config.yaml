@@ -15,6 +15,9 @@ resolvers:
 # whos got time for time anyway
 check_time: false
 customer_key: 12345-12346-12356-12456-13456-234561
+zk_super_credentials: super:dadsecret
+zk_master_credentials: dcos-master:dadsecret1
+zk_agent_credentials: dcos-agent:dadsecret2
 #gotta make sure to put overlay on a different subnet than the root DC/OS
 dcos_overlay_network:
       vtep_subnet: 44.128.0.0/20
