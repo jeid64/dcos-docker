@@ -1,3 +1,18 @@
+Git checkout onto your DCOS Master.
+Edit script.sh
+Put in the DCOS master private ip into the variables for script.sh. Then put in the cryptoid for the root cluster.
+MLB+Vhost is broken at the moment, so we add an app called haproxy-masters that just proxies the DAD masters on some random port from a public agent.
+
+
+# How do I get into one of the containers?
+docker exec -it <container-id> /bin/bash
+
+# What are all of these directories?
+bootstrap_serve gets parsed by script.sh to make various config files to boot the DAD cluster.
+include is used to build the Docker image that gets used by DAD. I built one and added it to my Docker hub account so others don't have to build it.
+haproxy-master is just used for now for the custom haproxy image.
+
+#TODO
 Change config.yaml
 
 Change URI for env files in Marathon apps
@@ -6,3 +21,5 @@ Change bootstrapip+port in env files (genconf/serve/dcos-dad-envfile-*)+config.y
 
 HAProxy config volume mount if wanted
 
+Have journald for container be sent to stdout/stderr
+Make SSH'ing into container easy.

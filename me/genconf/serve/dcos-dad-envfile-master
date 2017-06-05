@@ -1,3 +1,0 @@
-dcos_bootstrap_private_ip=http://10.0.5.65
-dcos_bootstrap_port=8000
-dcos_role=master
