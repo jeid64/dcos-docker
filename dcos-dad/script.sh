@@ -15,7 +15,7 @@ cat bootstrap_serve/dcos-dad-envfile-slave | sed -e "s/dcos_dad_bootstrap_ip/$dc
 cat bootstrap_serve/config.yaml | sed -e "s/dcos_dad_num_masters/$dcos_dad_num_masters/;s/dcos_dad_bootstrap_ip/$dcos_dad_bootstrap_ip/;s/dcos_dad_bootstrap_port/$dcos_dad_bootstrap_port/;s/dcos_dad_cryptoid/$dcos_dad_cryptoid/;s/dcos_dad_upstream_resolver/$dcos_dad_upstream_resolver/" >| genconf/config.yaml
 cp bootstrap_serve/ip-detect genconf/ip-detect
 
-bash dcos_generate_config.ee.sh
+sh dcos_generate_config.ee.sh
 docker run -d -p $dcos_dad_bootstrap_port:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
 
 curl -X POST http://leader.mesos:8080/v2/apps -d @genconf/tmp/dcos-dad-master.json -H "Content-type: application/json"
