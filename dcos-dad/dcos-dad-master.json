@@ -3,6 +3,13 @@
   "instances": dcos_dad_num_masters,
   "container": {
     "type": "DOCKER",
+    "volumes": [
+      {
+          "containerPath": "/sys/fs/cgroup",
+          "hostPath": "/sys/fs/cgroup",
+          "mode": "RO"
+      }
+    ],
     "docker": {
       "image": "jeid64/dcos-dad",
       "privileged": true,
@@ -10,18 +17,6 @@
       "parameters": [
         {"key": "tmpfs", "value": "/run:rw,exec,nosuid,size=2097152k"},
         {"key": "tmpfs", "value": "/tmp:rw,exec,nosuid,size=2097152k"}
-      ],
-      "volumes": [
-          {
-              "containerPath": "/sys/fs/cgroup",
-              "hostPath": "/sys/fs/cgroup",
-              "mode": "RO"
-          },
-          {
-              "containerPath": "/root/.ssh",
-              "hostPath": "/home/core/.ssh",
-              "mode": "RW"
-          },
       ],
       "portMappings": [
         {
@@ -85,7 +80,8 @@
   "mem": 4096,
   "cpus": 2,
   "uris": [
-          "http://dcos_dad_bootstrap_ip:dcos_dad_bootstrap_port/dcos-dad-envfile-master"
+          "http://dcos_dad_bootstrap_ip:dcos_dad_bootstrap_port/dcos-dad-envfile-master",
+          "file:////home/core/.ssh/authorized_keys"
   ],
   "ipAddress": {
           "networkName": "dcos"
