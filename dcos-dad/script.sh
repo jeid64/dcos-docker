@@ -20,4 +20,3 @@ docker run -d -p $dcos_dad_bootstrap_port:80 -v $PWD/genconf/serve:/usr/share/ng
 
 curl -X POST http://localhost:8080/v2/apps -d @genconf/tmp/dcos-dad-master.json -H "Content-type: application/json"
 curl -X POST http://localhost:8080/v2/apps -d @genconf/tmp/dcos-dad-slave.json -H "Content-type: application/json"
-curl -X POST http://localhost:8080/v2/apps -d @haproxy-master/haproxy-masters.json -H "Content-type: application/json"

@@ -4,12 +4,11 @@ Run a DC/OS cluster from your currently existing DC/OS cluster! Perfect for tryi
 
 Git checkout onto your DCOS Master.
 Edit script.sh
-Put in the DCOS master private ip into the variables for script.sh. Then put in the cryptoid for the root cluster.
+Put in the DCOS master private ip into the variables for script.sh. Then put in the cryptoid for the root cluster. Configure a vhost for the cluster.
 Download dcos_generate_config.ee.sh and put it in the same folder as script.sh
 Run script.sh
-It will add 3 apps to your root DC/OS cluster. master,slave, and haproxy-masters.
+It will add 2 apps to your DC/OS clusters, dcos-dad-masters and dcos-dad-slaves. I would install MLB from universe, which will then give you access to the UI once it's up.
 
-MLB+Vhost is broken at the moment, so we add an app called haproxy-masters that just proxies the DAD masters on some random port from a public agent.
 
 
 # How do I get into one of the containers?
@@ -18,16 +17,11 @@ docker exec -it <container-id> /bin/bash
 # What are all of these directories?
 bootstrap_serve gets parsed by script.sh to make various config files to boot the DAD cluster.
 include is used to build the Docker image that gets used by DAD. I built one and added it to my Docker hub account so others don't have to build it.
-haproxy-master is just used for now for the custom haproxy image.
 
 #TODO
 Change config.yaml
 
-Change URI for env files in Marathon apps
-
-Change bootstrapip+port in env files (genconf/serve/dcos-dad-envfile-*)+config.yaml
-
-HAProxy config volume mount if wanted
+Create bootstrpa node.
 
 Have journald for container be sent to stdout/stderr
 Make SSH'ing into container easy.
