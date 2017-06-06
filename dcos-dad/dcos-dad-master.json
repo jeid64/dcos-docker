@@ -1,5 +1,5 @@
 {
-  "id": "/dcos-dad-master",
+  "id": "/dcos_dad_prefix-dcos-dad-master",
   "instances": dcos_dad_num_masters,
   "container": {
     "type": "DOCKER",

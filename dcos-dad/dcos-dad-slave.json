@@ -1,5 +1,5 @@
 {
-  "id": "/dcos-dad-slave",
+  "id": "/dcos_dad_prefix-dcos-dad-slave",
   "instances": 1,
   "container": {
     "type": "DOCKER",
