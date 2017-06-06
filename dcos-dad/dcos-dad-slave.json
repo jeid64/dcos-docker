@@ -9,11 +9,6 @@
               "hostPath": "/sys/fs/cgroup",
               "mode": "RW"
           },
-          {
-              "containerPath": "/root/.ssh",
-              "hostPath": "/home/core/.ssh",
-              "mode": "RW"
-          },
          {
         "persistent": {
           "size": 10000
