@@ -9,6 +9,11 @@
               "hostPath": "/sys/fs/cgroup",
               "mode": "RW"
           },
+          {
+              "containerPath": "/root/.ssh",
+              "hostPath": "/home/core/.ssh",
+              "mode": "RW"
+          },
          {
         "persistent": {
           "size": 10000
@@ -27,58 +32,13 @@
       ],
       "portMappings": [
         {
-          "containerPort": 80,
-          "hostPort": 0,
-          "labels": {
-            "VIP_0": "/dcos-dad-slave:80"
-          },
-          "protocol": "tcp",
-          "name": "adminrouter-http"
-        },
-        {
-          "containerPort": 443,
-          "hostPort": 0,
-          "labels": {
-            "VIP_1": "/dcos-dad-slave:443"
-          },
-          "protocol": "tcp",
-          "name": "adminrouter-https"
-        },
-        {
-          "containerPort": 2181,
-          "hostPort": 0,
-          "labels": {
-            "VIP_2": "/dcos-dad-slave:2181"
-          },
-          "protocol": "tcp",
-          "name": "zk"
-        },
-        {
           "containerPort": 5051,
           "hostPort": 0,
           "labels": {
-            "VIP_3": "/dcos-dad-slave:5050"
+            "VIP_3": "/dcos-dad-slave:5051"
           },
           "protocol": "tcp",
           "name": "mesos-slave"
-        },
-        {
-          "containerPort": 8080,
-          "hostPort": 0,
-          "labels": {
-            "VIP_4": "/dcos-dad-slave:8080"
-          },
-          "protocol": "tcp",
-          "name": "marathon"
-        },
-        {
-          "containerPort": 8181,
-          "hostPort": 0,
-          "labels": {
-            "VIP_5": "/dcos-dad-slave:8181"
-          },
-          "protocol": "tcp",
-          "name": "exhibitor"
         }
     ],
     "forcePullImage": true

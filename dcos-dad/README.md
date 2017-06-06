@@ -21,7 +21,7 @@ include is used to build the Docker image that gets used by DAD. I built one and
 #TODO
 Change config.yaml
 
-Create bootstrpa node.
+Create bootstrap node.
 
 Have journald for container be sent to stdout/stderr
-Make SSH'ing into container easy.
+Make SSH'ing into container easy. (set user in script.sh)

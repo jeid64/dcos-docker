@@ -16,7 +16,12 @@
               "containerPath": "/sys/fs/cgroup",
               "hostPath": "/sys/fs/cgroup",
               "mode": "RO"
-          }
+          },
+          {
+              "containerPath": "/root/.ssh",
+              "hostPath": "/home/core/.ssh",
+              "mode": "RW"
+          },
       ],
       "portMappings": [
         {
