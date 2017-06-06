@@ -1,10 +1,10 @@
 set -o noclobber
-dcos_dad_bootstrap_ip=10.0.5.65
-dcos_dad_bootstrap_port=8002
-dcos_dad_upstream_resolver=10.0.5.65
-dcos_dad_num_masters=3
-dcos_dad_vhost=jeid-6hu0-publicsl-cipbg0zxm7eg-591045150.us-west-2.elb.amazonaws.com
-dcos_dad_cryptoid=4s94a3xtetxwedpkfoqrulwn399mud6exteg3tmj8iai73tzsruy
+: ${dcos_dad_bootstrap_ip:=$LIBPROCESS_IP}
+: ${dcos_dad_bootstrap_port:=$PORT_BOOTSTRAPHTTP}
+: ${dcos_dad_upstream_resolver:=10.0.5.65}
+: ${dcos_dad_num_masters:=3}
+: ${dcos_dad_vhost:=jeid-6hu0-publicsl-cipbg0zxm7eg-591045150.us-west-2.elb.amazonaws.com}
+: ${dcos_dad_cryptoid:=4s94a3xtetxwedpkfoqrulwn399mud6exteg3tmj8iai73tzsruy}
 mkdir genconf
 mkdir genconf/serve
 mkdir genconf/tmp
@@ -18,5 +18,5 @@ cp bootstrap_serve/ip-detect genconf/ip-detect
 bash dcos_generate_config.ee.sh
 docker run -d -p $dcos_dad_bootstrap_port:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
 
-curl -X POST http://localhost:8080/v2/apps -d @genconf/tmp/dcos-dad-master.json -H "Content-type: application/json"
-curl -X POST http://localhost:8080/v2/apps -d @genconf/tmp/dcos-dad-slave.json -H "Content-type: application/json"
+curl -X POST http://leader.mesos:8080/v2/apps -d @genconf/tmp/dcos-dad-master.json -H "Content-type: application/json"
+curl -X POST http://leader.mesos:8080/v2/apps -d @genconf/tmp/dcos-dad-slave.json -H "Content-type: application/json"
