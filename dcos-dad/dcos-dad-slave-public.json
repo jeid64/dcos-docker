@@ -1,0 +1,51 @@
+{
+  "id": "/dcos_dad_prefix-dcos-dad-slave-public",
+  "instances": 1,
+  "container": {
+    "type": "DOCKER",
+      "volumes": [
+          {
+              "containerPath": "/sys/fs/cgroup",
+              "hostPath": "/sys/fs/cgroup",
+              "mode": "RW"
+          },
+         {
+        "persistent": {
+          "size": 10000
+        },
+        "mode": "RW",
+        "containerPath": "docker-storage-dir"
+      }
+      ],
+    "docker": {
+      "image": "jeid64/dcos-dad",
+      "privileged": true,
+      "network": "USER",
+      "parameters": [
+        {"key": "tmpfs", "value": "/run:rw,exec,nosuid,size=2097152k"},
+        {"key": "tmpfs", "value": "/tmp:rw,exec,nosuid,size=2097152k"}
+      ],
+      "portMappings": [
+        {
+          "containerPort": 5051,
+          "hostPort": 0,
+          "labels": {
+            "VIP_3": "/dcos-dad-slave:5051"
+          },
+          "protocol": "tcp",
+          "name": "mesos-slave"
+        }
+    ],
+    "forcePullImage": true
+    }
+  },
+  "mem": dcos_dad_slave_mem,
+  "cpus": dcos_dad_slave_cpu,
+  "uris": [
+          "http://dcos_dad_bootstrap_ip:dcos_dad_bootstrap_port/dcos-dad-envfile-slave-public",
+          "file:////home/core/.ssh/authorized_keys"
+  ],
+  "ipAddress": {
+          "networkName": "dcos"
+  }
+}
