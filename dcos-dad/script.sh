@@ -27,6 +27,7 @@ sh dcos_generate_config.sh
 
 curl -X POST http://leader.mesos:8080/v2/apps -d @genconf/tmp/dcos-dad-master.json -H "Content-type: application/json"
 curl -X POST http://leader.mesos:8080/v2/apps -d @genconf/tmp/dcos-dad-slave.json -H "Content-type: application/json"
+curl -X POST http://leader.mesos:8080/v2/apps -d @genconf/tmp/dcos-dad-slave-public.json -H "Content-type: application/json"
 
 echo "Running bootstrap nginx container."
 docker run -p $dcos_dad_bootstrap_port:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
