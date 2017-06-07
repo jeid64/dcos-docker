@@ -1,3 +1,4 @@
 dcos_bootstrap_private_ip=http://dcos_dad_bootstrap_ip
 dcos_bootstrap_port=dcos_dad_bootstrap_port
 dcos_role=slave
+MESOS_RESOURCES='[{"type": "SCALAR", "name": "cpus", "scalar": {"value": dcos_dad_slave_cpu}}, {"type": "SCALAR", "name": "mem", "scalar": {"value": dcos_dad_slave_mem}}, {"name":"ports","type":"RANGES","ranges": {"range": [{"begin": 1025, "end": 2180},{"begin": 2182, "end": 3887},{"begin": 3889, "end": 5049},{"begin": 5052, "end": 8079},{"begin": 8082, "end": 8180},{"begin": 8182, "end": 32000}]}}]'

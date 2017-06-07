@@ -1,0 +1,3 @@
+dcos_bootstrap_private_ip=http://dcos_dad_bootstrap_ip
+dcos_bootstrap_port=dcos_dad_bootstrap_port
+dcos_role=slave

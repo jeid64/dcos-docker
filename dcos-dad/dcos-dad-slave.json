@@ -39,8 +39,8 @@
     "forcePullImage": true
     }
   },
-  "mem": 2048,
-  "cpus": 2,
+  "mem": dcos_dad_slave_mem,
+  "cpus": dcos_dad_slave_cpu,
   "uris": [
           "http://dcos_dad_bootstrap_ip:dcos_dad_bootstrap_port/dcos-dad-envfile-slave",
           "file:////home/core/.ssh/authorized_keys"

@@ -26,15 +26,6 @@ COPY include/systemd/dcos-dad-download.service /etc/systemd/system/
 COPY include/dcos-dad-download.sh /
 RUN systemctl enable dcos-dad-download 
 
-# init systemd.setenv=VAR2=2
-# cat /var/lib/dcos/mesos-slave-common for the future to fix this
-COPY include/mesos-slave-common /var/lib/dcos/mesos-slave-common
-
-
 COPY include/sbin/dcos-postflight /usr/local/sbin/
-
-#COPY genconf /genconf
-#COPY include/ssh /root/.ssh
-#RUN cp /root/.ssh/id_*.pub /root/.ssh/authorized_keys
 
 CMD ["/sbin/init"]
