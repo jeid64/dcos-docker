@@ -1,0 +1,29 @@
+{
+  "id": "/dcos-dad-bootstrap",
+  "instances": 1,
+  "cpus": 0.1,
+  "mem": 128,
+  "fetch": [
+    {
+      "uri": "https://github.com/jeid64/dcos-docker/archive/dcos-dad.zip"
+    }
+  ],
+  "cmd": "cd dcos-docker-dcos-dad/dcos-dad && sh script.sh",
+  "portDefinitions": [
+    {
+      "name": "bootstraphttp",
+      "protocol": "tcp",
+      "port": 0
+    }
+  ],
+  "env": {
+    "dcos_generate_config_url": "https://downloads.dcos.io/dcos/stable/commit/0ce03387884523f02624d3fb56c7fbe2e06e181b/dcos_generate_config.sh",
+    "dcos_dad_upstream_resolver": "10.0.6.255",
+    "dcos_dad_num_masters": "3",
+    "dcos_dad_vhost": "jeid-6hu0-publicsl-cipbg0zxm7eg-591045150.us-west-2.elb.amazonaws.com",
+    "dcos_dad_cryptoid": "mynxatql9zgzqeturoht5nrxsrialop7e58n598sdanl387wteko",
+    "dcos_dad_prefix": "jeid",
+    "dcos_dad_slave_cpu": "2",
+    "dcos_dad_slave_mem": "2500"
+  }
+}

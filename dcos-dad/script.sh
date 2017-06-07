@@ -1,4 +1,5 @@
 set -o noclobber
+: ${dcos_generate_config_url:=https://downloads.dcos.io/dcos/stable/commit/0ce03387884523f02624d3fb56c7fbe2e06e181b/dcos_generate_config.sh}
 : ${dcos_dad_bootstrap_ip:=$LIBPROCESS_IP}
 : ${dcos_dad_bootstrap_port:=$PORT_BOOTSTRAPHTTP}
 : ${dcos_dad_upstream_resolver:=10.0.5.65}
@@ -19,7 +20,8 @@ cat bootstrap_serve/dcos-dad-envfile-slave | sed -e "s/dcos_dad_bootstrap_ip/$dc
 cat bootstrap_serve/config.yaml | sed -e "s/dcos_dad_num_masters/$dcos_dad_num_masters/;s/dcos_dad_bootstrap_ip/$dcos_dad_bootstrap_ip/;s/dcos_dad_bootstrap_port/$dcos_dad_bootstrap_port/;s/dcos_dad_cryptoid/$dcos_dad_cryptoid/;s/dcos_dad_upstream_resolver/$dcos_dad_upstream_resolver/;s/dcos_dad_prefix/$dcos_dad_prefix/" >| genconf/config.yaml
 cp bootstrap_serve/ip-detect genconf/ip-detect
 
-sh dcos_generate_config.ee.sh
+curl -o dcos_generate_config.sh $dcos_generate_config_url
+sh dcos_generate_config.sh
 
 curl -X POST http://leader.mesos:8080/v2/apps -d @genconf/tmp/dcos-dad-master.json -H "Content-type: application/json"
 curl -X POST http://leader.mesos:8080/v2/apps -d @genconf/tmp/dcos-dad-slave.json -H "Content-type: application/json"
