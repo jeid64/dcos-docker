@@ -8,6 +8,7 @@ set -o noclobber
 : ${dcos_dad_prefix:=jeid}
 : ${dcos_dad_slave_cpu:=2}
 : ${dcos_dad_slave_mem:=2500}
+
 mkdir genconf
 mkdir genconf/serve
 mkdir genconf/tmp
@@ -19,7 +20,9 @@ cat bootstrap_serve/config.yaml | sed -e "s/dcos_dad_num_masters/$dcos_dad_num_m
 cp bootstrap_serve/ip-detect genconf/ip-detect
 
 sh dcos_generate_config.ee.sh
-docker run -d -p $dcos_dad_bootstrap_port:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
 
 curl -X POST http://leader.mesos:8080/v2/apps -d @genconf/tmp/dcos-dad-master.json -H "Content-type: application/json"
 curl -X POST http://leader.mesos:8080/v2/apps -d @genconf/tmp/dcos-dad-slave.json -H "Content-type: application/json"
+
+echo "Running bootstrap nginx container."
+docker run -p $dcos_dad_bootstrap_port:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
