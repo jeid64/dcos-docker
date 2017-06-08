@@ -2,6 +2,7 @@
 #SSH key fetch and place.
 mkdir -p /root/.ssh
 cp /mnt/mesos/sandbox/authorized_keys /root/.ssh/
+ln -s /mnt/mesos/sandbox/docker-storage-dir/ /var/lib/docker
 
 # Setup a mesos resources file if we're an agent/pub agent.
 if [ "$dcos_role" = "slave" ] || [ "$dcos_role" = "slave_public" ]
