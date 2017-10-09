@@ -1,13 +1,13 @@
 #current
 # probably could just have a bootstrap container or something
 bootstrap_url: http://dcos_dad_bootstrap_ip:dcos_dad_bootstrap_port
-cluster_name: DCOSATOPDCOS
+cluster_name: DCOSATOPDCOSSDK
 exhibitor_storage_backend: zookeeper
 exhibitor_zk_hosts: leader.mesos.dcos_dad_cryptoid.dcos.directory:2181
 exhibitor_zk_path: /dcos_dad_prefix-dcos-dad
 master_discovery: master_http_loadbalancer
 # get cryptokey from /navstar/lashup/key
-exhibitor_address: dcos_dad_prefix-dcos-dad-master.marathon.containerip.dcos.dcos_dad_cryptoid.dcos.directory
+exhibitor_address: master-0-node.dcos_dad_framework_name.autoip.dcos.thisdcos.directory
 num_masters: dcos_dad_num_masters
 # this could probably just be upstream
 resolvers:
