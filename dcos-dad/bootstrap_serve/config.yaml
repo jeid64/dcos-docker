@@ -7,7 +7,7 @@ exhibitor_zk_hosts: leader.mesos.dcos_dad_cryptoid.dcos.directory:2181
 exhibitor_zk_path: /dcos_dad_prefix-dcos-dad
 master_discovery: master_http_loadbalancer
 # get cryptokey from /navstar/lashup/key
-exhibitor_address: master-0-node.dcos_dad_framework_name.autoip.dcos.thisdcos.directory
+exhibitor_address: master-0-node.dcos_dad_framework_name.autoip.dcos.dcos_dad_cryptoid.dcos.directory
 num_masters: dcos_dad_num_masters
 # this could probably just be upstream
 resolvers:
