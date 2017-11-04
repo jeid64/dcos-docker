@@ -4,7 +4,7 @@ bootstrap_url: http://dcos_dad_bootstrap_ip:dcos_dad_bootstrap_port
 cluster_name: DCOSATOPDCOSSDK
 exhibitor_storage_backend: zookeeper
 exhibitor_zk_hosts: leader.mesos.jeidisthebest.jeidtld:2181
-exhibitor_zk_path: /dcos_dad_prefix-dcos-dad
+exhibitor_zk_path: /dcos_dad_prefix/exhibitor-zk-path
 master_discovery: master_http_loadbalancer
 # get cryptokey from /navstar/lashup/key
 exhibitor_address: master-0-node.dcos_dad_framework_name.autoip.dcos.jeidisthebest.jeidtld
